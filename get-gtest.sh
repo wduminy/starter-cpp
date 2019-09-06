@@ -1,0 +1,1 @@
+wget https://github.com/google/googletest/archive/release-$1.tar.gz && tar -xvf release-$1.tar.gz && rm release-$1.tar.gz && mv googletest-release-$1/googletest/include/gtest src && mv googletest-release-$1/googletest/src src/gtest/src && rm -f -r googletest-release-$1

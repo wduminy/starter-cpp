@@ -1,0 +1,7 @@
+BasedOnStyle: Chromium
+UseTab: Never
+NamespaceIndentation: Inner
+MaxEmptyLinesToKeep: 1
+ReflowComments: true
+AccessModifierOffset: -1
+FixNamespaceComments: false

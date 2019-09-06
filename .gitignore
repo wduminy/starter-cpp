@@ -1,0 +1,12 @@
+src/gtest
+*.depends
+*.o
+ipch
+build
+CMakefiles
+CMakeCache.txt
+*.cmake
+DartConfiguration.tcl
+Makefile
+__my__*
+*_app
