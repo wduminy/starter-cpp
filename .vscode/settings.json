@@ -1,3 +1,10 @@
 {
-	"C_Cpp.default.configurationProvider": "vector-of-bool.cmake-tools"
+	"C_Cpp.default.configurationProvider": "vector-of-bool.cmake-tools",
+	"lldb.displayFormat": "auto",
+	"lldb.showDisassembly": "never",
+	"lldb.dereferencePointers": true,
+	"cSpell.words": [
+		"gtest"
+	]
+
 }

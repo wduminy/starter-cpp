@@ -1,59 +1,33 @@
 # Starter CPP
 
-A very minimal starter project.  Feel free to help me make it better.  I am always hoping to learn something.
+A  starter project for C++ and CMake. Works on Mac out of the box.
 
 ## What technologies are folded in?
 
 - [CMake](https://cmake.org/cmake/help/v3.15/index.html)
-- [clang C++ 17](https://clang.llvm.org/cxx_status.html#cxx17)
-- [clang format](https://clang.llvm.org/docs/ClangFormat.html)
+- [clang C++ 20](https://clang.llvm.org/cxx_status.html#cxx20)
 - [google test 1.8.1](https://github.com/google/googletest)
+- [clang format](https://clang.llvm.org/docs/ClangFormat.html)
+- Settings for [Visual Studio code](https://code.visualstudio.com/)
 
-## What platforms?
+## Basic ideas
 
-(Help needed here: add you own OS)
+Google Test is _not_ in the source.  It will be downloaded and added to the source the first time you build.  The code will be placed in `src/gtest`.  This folder is ignored by GIT.  The code in `get-gtest.h` fetches `gtest` using `wget`.  
 
-- Mac OS
+The folder structure:
 
+1. `src/domain` has the code of your app. Files here are testable.
+1. `src/console` has the code that runs the console app (`main()`)
+1. `src/test` has the test code.
 
-## How does it work?
+You can also use the `#ifndef NO_TESTING ... #endif` construct to create _internal tests_.  See [fun.cpp](src/domain/fun.cpp) for an example.
 
-The C++ source is in a folder called `src/console`.  The idea is that `console` is an example some higher level package or component.  So, for a larger project you would add more folders under `src`.
+## Building
 
-Note that Google Test is not in the source.  It will be downloaded and added to the source the first time you build.  The code will be place in `src/gtest`.  This folder is git ignored.  The code in `get-gtest.h` fetches gtest using `wget`.  Most likely the most problematic part of the build. 
-
-This starter uses the idea that you can write your unit tests in the same file as the source.  The `TESTING` define can be used to demarcate you test code from the rest.
-
-```cpp
-#ifdef TESTING
-// tests go here
-#endif
-```
-
-This approach avoids some problems that occurs when you want to hide implementation details from other modules, but not from tests.
-
-The downside is that `main()` must be excluded from the build using the same preprocessor definition.  I small price to pay, I think.
-
-```cpp
-#ifndef TESTING
-// your main function goes here
-#endif
-```
-
-# How to build?
-
-The most standard way is possibly this:
+The most standard way to build possibly this:
 
 ```sh
-mkdir build
-cd build
-cmake ..
-make all
+mkdir build && cd build && cmake .. && make all && cd ..
 ```
 
 The targets `test_app` and `console_app` should be ready for use.
-
-# Questions
-
-1. Can `CMakeLists.txt` be simpler?
-1. Is there a better way to get gtest than `get-gtest.sh`?
